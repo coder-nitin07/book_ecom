@@ -15,6 +15,7 @@ import Cart from "./pages/Cart";
 import LogIn from "./pages/Login";
 import "./index.css";
 import "./app.css";
+import Footer from "./components/Footer";
 
 const App = () => {
   return (
@@ -30,6 +31,7 @@ const App = () => {
         <Route path="/login" element={<LogIn />} />
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
+      <Footer />
     </Router>
   );
 };
