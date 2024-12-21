@@ -16,7 +16,6 @@ import LogIn from "./pages/Login";
 import "./index.css";
 import "./app.css";
 import Footer from "./components/Footer";
-import HeroSlider from "./components/HeroSlider";
 
 const App = () => {
   return (
@@ -32,7 +31,6 @@ const App = () => {
         <Route path="/login" element={<LogIn />} />
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
-      <HeroSlider />
       <Footer />
     </Router>
   );
