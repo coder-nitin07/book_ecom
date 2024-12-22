@@ -125,6 +125,7 @@ const Navbar = () => {
           </div>
         </div>
       </div>
+      
       {/* MOBILE MENU */}
       {isOpen && <MobileMenu />}
     </nav>
