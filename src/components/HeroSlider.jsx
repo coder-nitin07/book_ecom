@@ -28,7 +28,7 @@ const HeroSlider = () => {
   }, []);
 
   return (
-    <div className="relative w-full h-[300px] sm:h-[400px] md:h-[500px] lg:h-[600px] mx-auto">
+    <div className="relative w-full h-[100%] sm:h-[100%] md:h-[400px] lg:h-[90vh] mx-auto">
       <div className="overflow-hidden h-full">
         <div
           className="flex transition-transform duration-500 ease-in-out"
