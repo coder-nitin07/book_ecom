@@ -62,7 +62,7 @@ const HeroSlider = () => {
           <div
             key={index}
             className={`w-3 h-3 rounded-full ${
-              currentIndex === index ? "bg-white" : "bg-gray-400"
+              currentIndex === index ? "bg-gray-200" : "bg-gray-500"
             }`}
           ></div>
         ))}
