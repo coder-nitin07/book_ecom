@@ -1,9 +1,10 @@
 import React from "react";
+import { Link } from "react-router";
 
 const MobileMenu = () => {
   return (
-    <div className="lg:hidden">
-      <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+    <div className="lg:hidden bg-black text-white absolute w-full">
+      <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 ">
         <Link
           to="/search"
           className="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-gray-800 hover:bg-gray-200"
