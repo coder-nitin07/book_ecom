@@ -27,12 +27,12 @@ const books = [
   },
 ];
 
-const Recommended = () => {
+const Trending = () => {
   return (
     <div className="mx-4 md:mx-14 my-10 md:my-16">
       <div className="bg-zinc-800 text-white p-4 rounded-xl">
         <h1 className="text-2xl md:text-4xl font-semibold text-center py-4">
-          Trending Books 🔥
+          Trending🔥
         </h1>
 
         {/* CARD CONTAINER */}
@@ -67,4 +67,4 @@ const Recommended = () => {
   );
 };
 
-export default Recommended;
+export default Trending;

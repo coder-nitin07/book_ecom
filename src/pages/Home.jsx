@@ -1,12 +1,12 @@
 import React from "react";
 import HeroSlider from "../components/HeroSlider";
-import Recommended from "../components/Recommended";
+import Trending from "../components/Trending";
 
 const Home = () => {
   return (
     <>
       <HeroSlider />
-      <Recommended />
+      <Trending />
     </>
   );
 };
