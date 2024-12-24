@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { IoLogOutOutline } from "react-icons/io5";
 
 const MobileMenu = ({ toggleMenu }) => {
   return (
@@ -142,6 +143,7 @@ const MobileMenu = ({ toggleMenu }) => {
           </svg>
           Cart
         </Link>
+
         {/* LOG IN */}
         <Link
           to="/login"
@@ -163,6 +165,16 @@ const MobileMenu = ({ toggleMenu }) => {
             />
           </svg>
           Log In
+        </Link>
+
+         {/* LOG OUT */}
+         <Link
+          to="/signup"
+          className="px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-gray-800 hover:bg-gray-200 flex items-center gap-4"
+          onClick={toggleMenu}
+        >
+          <IoLogOutOutline className="size-6" />
+          Log Out
         </Link>
       </div>
     </div>

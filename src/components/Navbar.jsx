@@ -114,12 +114,24 @@ const Navbar = () => {
                 />
               </svg>
             </Link>
+
+            {/* login button */}
             <Link to="/login" className="flex items-center justify-center">
               <button
                 type="button"
                 className="text-white bg-blue-600 hover:bg-blue-700 font-medium rounded-xl text-sm px-5 py-2.5 cursor-pointer"
               >
                 Log In
+              </button>
+            </Link>
+
+            {/* signup button */}
+            <Link to="/signup" className="flex items-center justify-center">
+              <button
+                type="button"
+                className="text-white bg-blue-600 hover:bg-blue-700 font-medium rounded-xl text-sm px-5 py-2.5 cursor-pointer"
+              >
+                Sign Up
               </button>
             </Link>
           </div>

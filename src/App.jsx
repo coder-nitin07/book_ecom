@@ -16,6 +16,7 @@ import LogIn from "./pages/Login";
 import "./index.css";
 import "./app.css";
 import Footer from "./components/Footer";
+import SignUp from "./pages/SignUp";
 
 const App = () => {
   return (
@@ -29,6 +30,8 @@ const App = () => {
         <Route path="/wishlist" element={<Wishlist />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/login" element={<LogIn />} />
+        <Route path="/signup" element={<SignUp />} />
+        <Route path="/signup" element={<SignUp />} />
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
       <Footer />
