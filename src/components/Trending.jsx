@@ -1,69 +1,75 @@
 import React from "react";
-
-const books = [
-  {
-    title: "Harry Potter",
-    author: "JK Rowling",
-    image:
-      "https://www.madrasshoppe.com/207337-large_default/harry-potter-7-volume-children-s-paperback-boxed-set-the-complete-collection-set-of-7-volumes-jk-rowling.jpg",
-  },
-  {
-    title: "Harry Potter",
-    author: "JK Rowling",
-    image:
-      "https://www.madrasshoppe.com/207337-large_default/harry-potter-7-volume-children-s-paperback-boxed-set-the-complete-collection-set-of-7-volumes-jk-rowling.jpg",
-  },
-  {
-    title: "Harry Potter",
-    author: "JK Rowling",
-    image:
-      "https://www.madrasshoppe.com/207337-large_default/harry-potter-7-volume-children-s-paperback-boxed-set-the-complete-collection-set-of-7-volumes-jk-rowling.jpg",
-  },
-  {
-    title: "Harry Potter",
-    author: "JK Rowling",
-    image:
-      "https://www.madrasshoppe.com/207337-large_default/harry-potter-7-volume-children-s-paperback-boxed-set-the-complete-collection-set-of-7-volumes-jk-rowling.jpg",
-  },
-];
+import { books } from "../db/books.db";
+import { ArrowRight } from "lucide-react";
 
 const Trending = () => {
-  return (
-    <div className="mx-4 md:mx-14 my-10 md:my-16">
-      <div className="bg-zinc-800 text-white p-4 rounded-xl">
-        <h1 className="text-2xl md:text-4xl font-semibold text-center py-4">
-          Trending🔥
-        </h1>
+  const trendingBooks = books.slice(0, 5);
 
-        {/* CARD CONTAINER */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8 text-black mx-2 md:mx-20 my-4 md:my-8">
-          {books.map((book) => (
-            <div
-              key={book.title}
-              className="bg-white rounded-xl transform transition-transform duration-300 hover:scale-105"
-            >
-              <div className="m-4">
+  return (
+    <section className="bg-gradient-to-b from-gray-900 to-gray-800 py-16 text-white">
+      <div className="container mx-auto px-4">
+        <h2 className="text-4xl font-bold text-center mb-12">
+          Trending Books
+          <span className="ml-2 inline-block animate-pulse">🔥</span>
+        </h2>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+          <div className="md:col-span-2 grid grid-cols-2 gap-4">
+            {trendingBooks.slice(0, 4).map((book) => (
+              <div
+                key={book.id}
+                className="bg-gray-700 rounded-lg overflow-hidden transition-all duration-300 hover:bg-gray-600"
+              >
+                <div className="relative pb-[56.25%]">
+                  <img
+                    src={book.image}
+                    alt={book.title}
+                    className="absolute h-full w-full object-cover"
+                  />
+                </div>
+                <div className="p-4">
+                  <h3 className="font-semibold text-lg mb-2 line-clamp-1">
+                    {book.title}
+                  </h3>
+                  <p className="text-gray-300 text-sm">{book.author}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+          <div className="md:col-span-1">
+            <div className="bg-gray-700 rounded-lg overflow-hidden h-full flex flex-col justify-between transition-all duration-300 hover:bg-gray-600">
+              <div className="relative pb-[100%]">
                 <img
-                  src={book.image}
-                  alt={book.title}
-                  className="w-full h-auto"
+                  src={trendingBooks[4].image}
+                  alt={trendingBooks[4].title}
+                  className="absolute h-full w-full object-cover"
                 />
               </div>
-              <div className="bg-zinc-400 rounded-b-xl">
-                <div className="p-4">
-                  <h1 className="text-lg md:text-xl font-semibold">
-                    {book.title}
-                  </h1>
-                  <p className="text-sm md:text-base font-semibold text-zinc-700">
-                    {book.author}
-                  </p>
+              <div className="p-6">
+                <h3 className="font-semibold text-xl mb-2">
+                  {trendingBooks[4].title}
+                </h3>
+                <p className="text-gray-300 mb-4">{trendingBooks[4].author}</p>
+                <div className="flex justify-between items-center">
+                  <span className="text-2xl font-bold text-yellow-400">
+                    ${trendingBooks[4].discountedPrice.toFixed(2)}
+                  </span>
+                  <div className="flex items-center">
+                    <span className="text-yellow-400 mr-1">★</span>
+                    <span>{trendingBooks[4].rating}</span>
+                  </div>
                 </div>
               </div>
             </div>
-          ))}
+          </div>
+        </div>
+        <div className="text-center">
+          <button className="bg-yellow-500 hover:bg-yellow-600 text-gray-900 font-bold py-2 px-4 rounded-full transition-colors duration-300 text-sm inline-flex items-center">
+            Explore Trending
+            <ArrowRight className="ml-2 h-4 w-4" />
+          </button>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 
