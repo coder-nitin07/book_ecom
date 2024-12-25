@@ -17,6 +17,7 @@ import "./index.css";
 import "./app.css";
 import Footer from "./components/Footer";
 import SignUp from "./pages/SignUp";
+import ViewBookDetails from "./components/ViewBookDetails";
 
 const App = () => {
   return (
@@ -32,6 +33,7 @@ const App = () => {
         <Route path="/login" element={<LogIn />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/signup" element={<SignUp />} />
+        <Route path='/recent' element={<ViewBookDetails />} />
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
       <Footer />
