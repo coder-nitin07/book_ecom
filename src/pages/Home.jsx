@@ -9,9 +9,9 @@ const Home = () => {
   return (
     <>
       <HeroSlider />
-
-      <ForYou />
       <BenefitsBar />
+      <ForYou />
+
       <Trending />
       <TopDiscounts />
       <RecentlyAddedBooks />

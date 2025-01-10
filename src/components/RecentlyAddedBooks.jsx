@@ -1,61 +1,64 @@
-import { Link } from 'react-router-dom'
-import logo from '../../public/assets/book-logo.png'
-import ViewBookDetails from './ViewBookDetails'
+import React from "react";
+import { books } from "../db/books.db";
+import { ArrowRight } from "lucide-react";
 
 const RecentlyAddedBooks = () => {
-    return (
-        <>
-            <div className="py-12 px-4 bg-[#50C878]">
-                <h4 className="text-3xl text-gray-100">Recently Added Books</h4>
+  const recentBooks = React.useMemo(() => {
+    return [...books].sort((a, b) => b.id - a.id).slice(0, 4);
+  }, []);
 
-                <div className="my-8 grid grid-cols-2 md:grid-cols-4 gap-4 ">
-                    <Link to='/recent'>
-                        <div className="bg-zinc-800 h-[100%] rounded p-4 flex flex-col bg-[#295856]">
-                            <div className="bg-zinc-900 rounded flex items-center justify-center">
-                                <img src={logo} alt="" />
-                            </div>
-                            <h2 className='mt-4 text-xs text-zinc-100 font-semibold'>Pyschology of Money</h2>
-                            <p className='mt-2 text-zinc-100 font-xs font-semibold'>by Morgan Housel</p>
-                            <p className='mt-2 text-zinc-100 font-xs font-semibold'>₹ 500</p>
-                        </div>
-                    </Link>
-
-                    <Link to='/recent'>
-                        <div className="bg-zinc-800 h-[100%] rounded p-4 flex flex-col bg-[#295856]">
-                            <div className="bg-zinc-900 rounded flex items-center justify-center">
-                                <img src={logo} alt="" />
-                            </div>
-                            <h2 className='mt-4 text-xs text-zinc-100 font-semibold'>Pyschology of Money</h2>
-                            <p className='mt-2 text-zinc-100 font-xs font-semibold'>by Morgan Housel</p>
-                            <p className='mt-2 text-zinc-100 font-xs font-semibold'>₹ 500</p>
-                        </div>
-                    </Link>
-                    
-                    <Link to='/recent'>
-                        <div className="bg-zinc-800 h-[100%] rounded p-4 flex flex-col bg-[#295856]">
-                            <div className="bg-zinc-900 rounded flex items-center justify-center">
-                                <img src={logo} alt="" />
-                            </div>
-                            <h2 className='mt-4 text-xs text-zinc-100 font-semibold'>Pyschology of Money</h2>
-                            <p className='mt-2 text-zinc-100 font-xs font-semibold'>by Morgan Housel</p>
-                            <p className='mt-2 text-zinc-100 font-xs font-semibold'>₹ 500</p>
-                        </div>
-                    </Link>
-
-                    <Link to='/recent'>
-                        <div className="bg-zinc-800 h-[100%] rounded p-4 flex flex-col bg-[#295856]">
-                            <div className="bg-zinc-900 rounded flex items-center justify-center">
-                                <img src={logo} alt="" />
-                            </div>
-                            <h2 className='mt-4 text-xs text-zinc-100 font-semibold'>Pyschology of Money</h2>
-                            <p className='mt-2 text-zinc-100 font-xs font-semibold'>by Morgan Housel</p>
-                            <p className='mt-2 text-zinc-100 font-xs font-semibold'>₹ 500</p>
-                        </div>
-                    </Link>
+  return (
+    <section className="bg-[#167D7F] py-16 text-white">
+      <div className="container mx-auto px-4">
+        <h2 className="text-4xl font-bold text-center mb-12">
+          Recently Added
+          <span className="ml-2 inline-block animate-bounce">🆕</span>
+        </h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+          {recentBooks.map((book) => (
+            <div
+              key={book.id}
+              className="bg-[#29A0B1] rounded-lg shadow-md overflow-hidden transition-all duration-300 hover:bg-[#98D7C2] hover:text-[#167D7F]"
+            >
+              <div className="relative pb-[133%]">
+                <img
+                  src={book.image}
+                  alt={book.title}
+                  className="absolute h-full w-full object-cover"
+                />
+                <div className="absolute top-0 left-0 bg-[#98D7C2] text-[#167D7F] px-2 py-1 text-xs font-bold m-2 rounded">
+                  New
                 </div>
+              </div>
+              <div className="p-4 flex-grow flex flex-col justify-between">
+                <div>
+                  <h3 className="font-semibold text-lg mb-2 line-clamp-2">
+                    {book.title}
+                  </h3>
+                  <p className="text-[#DDFFE7] text-sm mb-2">{book.author}</p>
+                </div>
+                <div className="flex justify-between items-center mt-4">
+                  <span className="text-[#DDFFE7] font-bold">
+                    ${book.discountedPrice.toFixed(2)}
+                  </span>
+                  <div className="flex items-center">
+                    <span className="text-[#98D7C2] mr-1">★</span>
+                    <span className="text-sm">{book.rating}</span>
+                  </div>
+                </div>
+              </div>
             </div>
-        </>
-    )
-}
+          ))}
+        </div>
+        <div className="text-center">
+          <button className="bg-[#98D7C2] hover:bg-[#DDFFE7] text-[#167D7F] font-bold py-2 px-4 rounded-full transition-colors duration-300 text-sm inline-flex items-center">
+            View All New Arrivals
+            <ArrowRight className="ml-2 h-4 w-4" />
+          </button>
+        </div>
+      </div>
+    </section>
+  );
+};
 
-export default RecentlyAddedBooks
+export default RecentlyAddedBooks;

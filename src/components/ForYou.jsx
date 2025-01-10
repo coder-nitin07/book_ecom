@@ -8,9 +8,9 @@ const ForYou = () => {
   }, []);
 
   return (
-    <section className="bg-gradient-to-r from-blue-50 to-indigo-50 py-16">
+    <section className="bg-[#DDFFE7] py-16">
       <div className="container mx-auto px-4">
-        <h2 className="text-4xl font-bold text-center mb-12 text-gray-800">
+        <h2 className="text-4xl font-bold text-center mb-12 text-[#167D7F]">
           For You
           <span className="ml-2 inline-block animate-bounce">📚</span>
         </h2>
@@ -30,16 +30,16 @@ const ForYou = () => {
                 />
               </div>
               <div className="w-2/3 p-4">
-                <h3 className="font-semibold text-lg mb-2 text-gray-800 line-clamp-1">
+                <h3 className="font-semibold text-lg mb-2 text-[#167D7F] line-clamp-1">
                   {book.title}
                 </h3>
                 <p className="text-gray-600 text-sm mb-2">{book.author}</p>
                 <div className="flex justify-between items-center">
-                  <span className="text-indigo-600 font-bold">
+                  <span className="text-[#29A0B1] font-bold">
                     ${book.discountedPrice.toFixed(2)}
                   </span>
                   <div className="flex items-center">
-                    <span className="text-yellow-400 mr-1">★</span>
+                    <span className="text-[#98D7C2] mr-1">★</span>
                     <span className="text-sm text-gray-600">{book.rating}</span>
                   </div>
                 </div>
@@ -48,7 +48,7 @@ const ForYou = () => {
           ))}
         </div>
         <div className="text-center">
-          <button className="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded-full transition-colors duration-300 text-sm inline-flex items-center">
+          <button className="bg-[#167D7F] hover:bg-[#29A0B1] text-white font-bold py-2 px-4 rounded-full transition-colors duration-300 text-sm inline-flex items-center">
             View More
             <ArrowRight className="ml-2 h-4 w-4" />
           </button>

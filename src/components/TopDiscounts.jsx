@@ -10,9 +10,9 @@ const TopDiscounts = () => {
   }, []);
 
   return (
-    <section className="bg-gradient-to-r from-red-50 to-orange-50 py-16">
+    <section className="bg-[#DDFFE7] py-16">
       <div className="container mx-auto px-4">
-        <h2 className="text-4xl font-bold text-center mb-12 text-gray-800">
+        <h2 className="text-4xl font-bold text-center mb-12 text-[#167D7F]">
           Top Discounts
           <span className="ml-2 inline-block animate-pulse">💸</span>
         </h2>
@@ -25,12 +25,12 @@ const TopDiscounts = () => {
                   alt={topDiscountBooks[0].title}
                   className="absolute h-full w-full object-cover"
                 />
-                <div className="absolute top-0 right-0 bg-red-500 text-white px-2 py-1 text-lg font-bold">
+                <div className="absolute top-0 right-0 bg-[#29A0B1] text-white px-2 py-1 text-lg font-bold">
                   {topDiscountBooks[0].discountPercent}% OFF
                 </div>
               </div>
               <div className="p-6">
-                <h3 className="font-semibold text-xl mb-2 text-gray-800">
+                <h3 className="font-semibold text-xl mb-2 text-[#167D7F]">
                   {topDiscountBooks[0].title}
                 </h3>
                 <p className="text-gray-600 mb-4">
@@ -41,12 +41,12 @@ const TopDiscounts = () => {
                     <span className="text-gray-400 line-through text-lg mr-2">
                       ${topDiscountBooks[0].price.toFixed(2)}
                     </span>
-                    <span className="text-red-600 font-bold text-2xl">
+                    <span className="text-[#29A0B1] font-bold text-2xl">
                       ${topDiscountBooks[0].discountedPrice.toFixed(2)}
                     </span>
                   </div>
                   <div className="flex items-center">
-                    <span className="text-yellow-400 mr-1">★</span>
+                    <span className="text-[#98D7C2] mr-1">★</span>
                     <span className="text-gray-600">
                       {topDiscountBooks[0].rating}
                     </span>
@@ -69,19 +69,19 @@ const TopDiscounts = () => {
                   />
                 </div>
                 <div className="w-2/3 p-4">
-                  <div className="bg-red-500 text-white px-2 py-1 text-xs font-bold inline-block mb-2 rounded">
+                  <div className="bg-[#29A0B1] text-white px-2 py-1 text-xs font-bold inline-block mb-2 rounded">
                     {book.discountPercent}% OFF
                   </div>
-                  <h3 className="font-semibold text-lg mb-2 text-gray-800 line-clamp-1">
+                  <h3 className="font-semibold text-lg mb-2 text-[#167D7F] line-clamp-1">
                     {book.title}
                   </h3>
                   <p className="text-gray-600 text-sm mb-2">{book.author}</p>
                   <div className="flex justify-between items-center">
-                    <span className="text-red-600 font-bold">
+                    <span className="text-[#29A0B1] font-bold">
                       ${book.discountedPrice.toFixed(2)}
                     </span>
                     <div className="flex items-center">
-                      <span className="text-yellow-400 mr-1">★</span>
+                      <span className="text-[#98D7C2] mr-1">★</span>
                       <span className="text-sm text-gray-600">
                         {book.rating}
                       </span>
@@ -93,7 +93,7 @@ const TopDiscounts = () => {
           </div>
         </div>
         <div className="text-center">
-          <button className="bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-full transition-colors duration-300 text-sm inline-flex items-center">
+          <button className="bg-[#167D7F] hover:bg-[#29A0B1] text-white font-bold py-2 px-4 rounded-full transition-colors duration-300 text-sm inline-flex items-center">
             See All Discounts
             <ArrowRight className="ml-2 h-4 w-4" />
           </button>
