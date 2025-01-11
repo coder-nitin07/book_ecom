@@ -1,0 +1,7 @@
+.gradient{
+    background: linear-gradient(90deg, hsla(167, 68%, 73%, 1) 0%, hsla(178, 59%, 48%, 1) 100%);
+}
+
+.form-div{
+    background-color: hsla(0, 0%, 90%, 0.8);
+}

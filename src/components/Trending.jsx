@@ -1,9 +1,13 @@
-import React from "react";
+import { useNavigate } from "react-router-dom";
 import { books } from "../db/books.db";
-import { ArrowRight } from "lucide-react";
 
 const Trending = () => {
+  const navigate = useNavigate();
   const trendingBooks = books.slice(0, 5);
+
+  const handleBookClick = (bookId) => {
+    navigate(`/book/${bookId}`);
+  };
 
   return (
     <section className="bg-[#167D7F] py-16 text-white">
@@ -17,7 +21,8 @@ const Trending = () => {
             {trendingBooks.slice(0, 4).map((book) => (
               <div
                 key={book.id}
-                className="bg-[#29A0B1] rounded-lg overflow-hidden transition-all duration-300 hover:bg-[#98D7C2] hover:text-[#167D7F]"
+                className="bg-[#29A0B1] rounded-lg overflow-hidden transition-all duration-300 hover:bg-[#98D7C2] hover:text-[#167D7F] cursor-pointer"
+                onClick={() => handleBookClick(book.id)}
               >
                 <div className="relative pb-[56.25%]">
                   <img
@@ -36,7 +41,10 @@ const Trending = () => {
             ))}
           </div>
           <div className="md:col-span-1">
-            <div className="bg-[#29A0B1] rounded-lg overflow-hidden h-full flex flex-col justify-between transition-all duration-300 hover:bg-[#98D7C2] hover:text-[#167D7F]">
+            <div 
+              className="bg-[#29A0B1] rounded-lg overflow-hidden h-full flex flex-col justify-between transition-all duration-300 hover:bg-[#98D7C2] hover:text-[#167D7F] cursor-pointer"
+              onClick={() => handleBookClick(trendingBooks[4].id)}
+            >
               <div className="relative pb-[100%]">
                 <img
                   src={trendingBooks[4].image}
@@ -62,15 +70,10 @@ const Trending = () => {
             </div>
           </div>
         </div>
-        <div className="text-center">
-          <button className="bg-[#98D7C2] hover:bg-[#DDFFE7] text-[#167D7F] font-bold py-2 px-4 rounded-full transition-colors duration-300 text-sm inline-flex items-center">
-            Explore Trending
-            <ArrowRight className="ml-2 h-4 w-4" />
-          </button>
-        </div>
       </div>
     </section>
   );
 };
 
 export default Trending;
+

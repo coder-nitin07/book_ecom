@@ -1,11 +1,17 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import { books } from "../db/books.db";
-import { ArrowRight } from "lucide-react";
 
 const ForYou = () => {
+  const navigate = useNavigate();
+
   const forYouBooks = React.useMemo(() => {
     return [...books].sort(() => 0.5 - Math.random()).slice(0, 6);
   }, []);
+
+  const handleBookClick = (bookId) => {
+    navigate(`/book/${bookId}`);
+  };
 
   return (
     <section className="bg-[#DDFFE7] py-16">
@@ -20,7 +26,8 @@ const ForYou = () => {
               key={book.id}
               className={`flex ${
                 index % 2 === 0 ? "flex-row" : "flex-row-reverse"
-              } bg-white rounded-lg shadow-md overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-1`}
+              } bg-white rounded-lg shadow-md overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-1 cursor-pointer`}
+              onClick={() => handleBookClick(book.id)}
             >
               <div className="w-1/3">
                 <img
@@ -47,15 +54,10 @@ const ForYou = () => {
             </div>
           ))}
         </div>
-        <div className="text-center">
-          <button className="bg-[#167D7F] hover:bg-[#29A0B1] text-white font-bold py-2 px-4 rounded-full transition-colors duration-300 text-sm inline-flex items-center">
-            View More
-            <ArrowRight className="ml-2 h-4 w-4" />
-          </button>
-        </div>
       </div>
     </section>
   );
 };
 
 export default ForYou;
+

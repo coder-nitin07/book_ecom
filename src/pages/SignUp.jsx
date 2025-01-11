@@ -29,8 +29,8 @@ const SignUp = () => {
     };
     return (
         <>
-            <div className="flex justify-center items-center h-[100%] bg-gray-100 py-12">
-                <div className="bg-white p-10 rounded-md shadow-md w-80">
+            <div className="flex justify-center items-center h-[100%] bg-gray-100 py-12 gradient">
+                <div className="bg-white p-10 rounded-md shadow-md w-80 form-div">
                     <h2 className="text-center text-2xl font-bold mb-4">Sign Up</h2>
 
                     {/* Create a form */}

@@ -1,8 +1,9 @@
 import React from "react";
-import { books } from "../db/books.db";
-import { ArrowRight } from "lucide-react";
+import { useNavigate } from "react-router-dom";
+import { books } from "../db/books.db.js";
 
 const RecentlyAddedBooks = () => {
+  const navigate = useNavigate();
   const recentBooks = React.useMemo(() => {
     return [...books].sort((a, b) => b.id - a.id).slice(0, 4);
   }, []);
@@ -18,7 +19,8 @@ const RecentlyAddedBooks = () => {
           {recentBooks.map((book) => (
             <div
               key={book.id}
-              className="bg-[#29A0B1] rounded-lg shadow-md overflow-hidden transition-all duration-300 hover:bg-[#98D7C2] hover:text-[#167D7F]"
+              className="bg-[#29A0B1] rounded-lg shadow-md overflow-hidden transition-all duration-300 hover:bg-[#98D7C2] hover:text-[#167D7F] cursor-pointer"
+              onClick={() => navigate(`/book/${book.id}`)}
             >
               <div className="relative pb-[133%]">
                 <img
@@ -50,15 +52,10 @@ const RecentlyAddedBooks = () => {
             </div>
           ))}
         </div>
-        <div className="text-center">
-          <button className="bg-[#98D7C2] hover:bg-[#DDFFE7] text-[#167D7F] font-bold py-2 px-4 rounded-full transition-colors duration-300 text-sm inline-flex items-center">
-            View All New Arrivals
-            <ArrowRight className="ml-2 h-4 w-4" />
-          </button>
-        </div>
       </div>
     </section>
   );
 };
 
 export default RecentlyAddedBooks;
+

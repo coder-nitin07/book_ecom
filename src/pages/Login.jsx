@@ -27,8 +27,8 @@ const LogIn = () => {
 
   return (
     <>
-        <div className="flex justify-center items-center h-screen bg-gray-100">
-            <div className="bg-white p-10 rounded-md shadow-md w-80">
+        <div className="flex justify-center items-center h-screen bg-gray-100 gradient">
+            <div className="bg-white p-10 rounded-md shadow-md w-80 form-div">
                 <h2 className="text-center text-2xl font-bold mb-4">Login</h2>
 
                 {/* Create a form */}
